@@ -38,8 +38,9 @@ Value supports 'set'
 
 ### Object
 
-Object supports 'set', 'clear', 'merge' at the object level.
-Object supports 'set', 'clear' at the field level.
+* Object supports 'set', 'clear', 'merge' at the object level.
+* Object supports 'set', 'clear' at the field level.
+
 
 ```
 dispatch({type: `set visited ${key}`, [key]: new Date()})
@@ -47,8 +48,8 @@ dispatch({type: `set visited ${key}`, [key]: new Date()})
 
 ### Array
 
-Array supports 'set'
-TODO: set element
+* Array supports 'set'
+* TODO: set element
 
 ### RequestableStatus
 
