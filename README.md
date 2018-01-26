@@ -13,7 +13,6 @@ Simple Redux Reducer Patterns.
 
 ```
   combineReducers({
-    hydrated: Diet.Value('hydrated', false),
     shownModals: Diet.Object('shownModals'),
     notes: Diet.Value('notes', ""),
     visited: Diet.Obj('visited', {}),
