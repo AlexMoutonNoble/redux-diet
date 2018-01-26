@@ -3,22 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var ActionTypeReset = exports.ActionTypeReset = function ActionTypeReset(keys, init) {
-  return function () {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : init;
-    var action = arguments[1];
-
-    if (keys.includes(action.type)) {
-      return init;
-    }
-    return state;
-  };
-};
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 var Array = exports.Array = function Array(key) {
   var init = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
 
@@ -27,27 +11,6 @@ var Array = exports.Array = function Array(key) {
 
     if (action.type == "set " + key) return action[key].slice(0);
 
-    return state;
-  };
-};
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var Field = exports.Field = function Field(parent, key, foreign) {
-  foreign = foreign || key;
-  return function (state, action) {
-    var init = '';
-    state = state || init;
-    if (action.type == 'set ' + parent) {
-      return action[parent][foreign] && _extends({}, action[parent][foreign]) || init;
-    } else if (aciton.type == 'set ' + key) {
-      return action[key] && _extends({}, action[key]) || init;
-    }
     return state;
   };
 };
@@ -104,16 +67,6 @@ var Object = exports.Object = function Object(key) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-ActionTypeReset = require('./ActionTypeReset.js');
-
-var RequestableReset = exports.RequestableReset = function RequestableReset(key, init) {
-  return ActionTypeReset(['clear ' + key, 'set ' + key + ' error'], init);
-};
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 var RequestableStatus = exports.RequestableStatus = function RequestableStatus(key) {
   var resets = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
 
@@ -136,20 +89,6 @@ var RequestableStatus = exports.RequestableStatus = function RequestableStatus(k
       return Object.assign({}, state, { status: 'error', error: action.error });
     }
     return state;
-  };
-};
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var Sequence = exports.Sequence = function Sequence(reducers) {
-  return function (state, action) {
-    return reducers.map(function (reducer) {
-      return reducer(state, action);
-    }).find(function (s) {
-      return s != state;
-    }) || state;
   };
 };
 "use strict";
