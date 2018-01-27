@@ -1,4 +1,4 @@
-export const Array = (key, init = []) => {
+export default (key, init = []) => {
   return (state, action) => {
     state = state || init
 

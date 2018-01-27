@@ -1,4 +1,4 @@
-export const Object = (key, init={}) => {
+export default (key, init={}) => {
   const setField = RegExp("set " + key + " (\\w*)$");
   const clearField = RegExp("clear " + key + " (\\w*)$");
   const setObj = `set ${key}`

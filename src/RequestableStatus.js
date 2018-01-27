@@ -1,4 +1,4 @@
-export const RequestableStatus = (key, resets = []) => {
+export default (key, resets = []) => {
   return (state, action) => {
     const init = { status: 'empty', error: null }
     state = state || init
