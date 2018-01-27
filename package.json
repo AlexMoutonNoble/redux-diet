@@ -2,17 +2,26 @@
   "name": "redux-diet",
   "version": "1.0.2",
   "description": "Simple Redux Reducer Patterns",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "src",
+    "lib"
+  ],
   "repository": "https://github.com/AlexMouton/redux-diet",
   "author": "Alex Mouton <thomas.mouton@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "babel src -d dist -s",
+    "build": "npm run build:commonjs && npm run build:es",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
     "prepare": "babel src -d dist -s"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
+    "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.1.3"
   }
 }
